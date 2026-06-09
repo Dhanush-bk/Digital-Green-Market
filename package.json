@@ -1,0 +1,18 @@
+{
+  "name": "farmers-marketplace",
+  "version": "1.0.0",
+  "description": "A Python-backed marketplace where farmers list products and buyers discover, offer, and purchase.",
+  "main": "server.py",
+  "scripts": {
+    "start": "python3 server.py",
+    "dev": "python3 server.py"
+  },
+  "keywords": [
+    "farmers",
+    "marketplace",
+    "buyers",
+    "agriculture"
+  ],
+  "author": "",
+  "license": "MIT"
+}

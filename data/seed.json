@@ -1,0 +1,86 @@
+{
+  "farmers": [
+    {
+      "id": "farmer_001",
+      "name": "Ravi Kumar",
+      "username": "ravi",
+      "contact": "+91 98765 43210",
+      "location": "Mandya, Karnataka",
+      "verified": true
+    },
+    {
+      "id": "farmer_002",
+      "name": "Meena Farms",
+      "username": "meena",
+      "contact": "+91 99887 76655",
+      "location": "Nashik, Maharashtra",
+      "verified": true
+    }
+  ],
+  "buyers": [
+    {
+      "id": "consumer_001",
+      "name": "Green Basket Stores",
+      "username": "greenbasket",
+      "contact": "+91 90000 11122",
+      "location": "Bengaluru, Karnataka",
+      "verified": true
+    },
+    {
+      "id": "consumer_002",
+      "name": "FreshCart Wholesale",
+      "username": "freshcart",
+      "contact": "+91 94444 22233",
+      "location": "Pune, Maharashtra",
+      "verified": true
+    }
+  ],
+  "products": [
+    {
+      "id": "crop_001",
+      "farmerId": "farmer_001",
+      "name": "Organic Tomatoes",
+      "category": "Vegetables",
+      "quantity": "250 kg",
+      "startingBid": 8000,
+      "description": "Freshly harvested tomatoes ready for same-day pickup.",
+      "image": "",
+      "status": "Active",
+      "createdAt": "2026-06-08T02:00:00.000Z",
+      "endsAt": "2026-12-31T23:30:00.000Z"
+    },
+    {
+      "id": "crop_002",
+      "farmerId": "farmer_002",
+      "name": "Alphonso Mangoes",
+      "category": "Fruits",
+      "quantity": "80 crates",
+      "startingBid": 96000,
+      "description": "Premium grade mangoes packed in transport-ready crates.",
+      "image": "",
+      "status": "Active",
+      "createdAt": "2026-06-08T03:00:00.000Z",
+      "endsAt": "2026-12-31T23:45:00.000Z"
+    }
+  ],
+  "bids": [
+    {
+      "id": "bid_001",
+      "productId": "crop_001",
+      "buyerId": "consumer_001",
+      "amount": 8500,
+      "message": "Can collect from the farm gate today.",
+      "createdAt": "2026-06-08T04:10:00.000Z"
+    },
+    {
+      "id": "bid_002",
+      "productId": "crop_002",
+      "buyerId": "consumer_002",
+      "amount": 98000,
+      "message": "Need complete crate lot.",
+      "createdAt": "2026-06-08T04:20:00.000Z"
+    }
+  ],
+  "confirmations": [],
+  "pendingOtps": []
+}

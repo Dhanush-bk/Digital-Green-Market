@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Harvest Link Auctions</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main id="app">
+      <section class="auth-shell" id="authView">
+        <div class="brand-panel">
+          <p class="eyebrow">Direct crop bidding</p>
+          <h1>Harvest Link</h1>
+          <p class="lede">
+            Farmers open timed crop auctions with a first bid. Consumers can keep bidding
+            live until the farmer's auction timer closes.
+          </p>
+        </div>
+
+        <div class="auth-panel">
+          <div class="role-tabs" aria-label="Account role">
+            <button class="role-tab active" type="button" data-role="farmer">Farmer</button>
+            <button class="role-tab" type="button" data-role="consumer">Consumer</button>
+          </div>
+
+          <form id="loginForm" class="login-form">
+            <h2 id="loginTitle">Farmer sign in</h2>
+            <label>
+              Name
+              <input name="name" autocomplete="name" placeholder="Your full name" required />
+            </label>
+            <label>
+              Username
+              <input name="username" autocomplete="username" placeholder="Choose or reuse username" required />
+            </label>
+            <label>
+              Mobile / WhatsApp
+              <input name="contact" autocomplete="tel" placeholder="+91 98765 43210" required />
+            </label>
+            <label>
+              Location
+              <input name="location" autocomplete="address-level2" placeholder="Village, city, state" required />
+            </label>
+            <button class="primary-action" type="submit">Send OTP</button>
+          </form>
+
+          <form id="otpForm" class="login-form hidden">
+            <h2>OTP verification</h2>
+            <p class="muted" id="otpHint">Enter the OTP generated for this demo login.</p>
+            <label>
+              6 digit OTP
+              <input name="otp" inputmode="numeric" maxlength="6" placeholder="123456" required />
+            </label>
+            <button class="primary-action" type="submit">Verify and continue</button>
+            <button class="ghost-action" type="button" id="backToLoginButton">Back</button>
+          </form>
+        </div>
+      </section>
+
+      <section class="dashboard hidden" id="dashboardView">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow" id="roleLabel">Farmer dashboard</p>
+            <h1 id="welcomeTitle">Welcome</h1>
+          </div>
+          <button class="ghost-action" type="button" id="logoutButton">Log out</button>
+        </header>
+
+        <div class="status-strip" id="statusStrip"></div>
+
+        <div id="farmerDashboard" class="workspace-grid hidden">
+          <aside class="tool-panel">
+            <h2>Upload crop auction</h2>
+            <form id="cropForm" class="stacked-form">
+              <label>
+                Crop name
+                <input name="name" placeholder="Tomatoes, rice, mangoes" required />
+              </label>
+              <label>
+                Category
+                <input name="category" placeholder="Vegetables, fruits, grains" />
+              </label>
+              <label>
+                Quantity
+                <input name="quantity" placeholder="250 kg, 30 crates" required />
+              </label>
+              <label>
+                First bid set by farmer
+                <input name="startingBid" type="number" min="1" step="1" placeholder="Starting amount" required />
+              </label>
+              <label>
+                Auction time limit
+                <select name="durationMinutes" required>
+                  <option value="60">1 hour</option>
+                  <option value="360">6 hours</option>
+                  <option value="720">12 hours</option>
+                  <option value="1440" selected>24 hours</option>
+                  <option value="2880">2 days</option>
+                  <option value="10080">7 days</option>
+                </select>
+              </label>
+              <label>
+                Description
+                <textarea name="description" rows="4" placeholder="Quality, harvest date, pickup details"></textarea>
+              </label>
+              <label>
+                Crop image
+                <input name="image" type="file" accept="image/*" />
+              </label>
+              <button class="primary-action" type="submit">Start auction</button>
+            </form>
+          </aside>
+
+          <section class="content-panel">
+            <div class="section-heading">
+              <div>
+                <p class="eyebrow">Farmer section</p>
+                <h2>Your auctions and confirmations</h2>
+              </div>
+            </div>
+            <div id="farmerProducts" class="product-grid"></div>
+          </section>
+        </div>
+
+        <div id="consumerDashboard" class="workspace-grid consumer-layout hidden">
+          <aside class="tool-panel">
+            <h2>Find crop auctions</h2>
+            <label class="search-box">
+              Search
+              <input id="productSearch" placeholder="Search crop, farmer, location" />
+            </label>
+            <div class="filter-row">
+              <button class="chip active" type="button" data-filter="all">All</button>
+              <button class="chip" type="button" data-filter="active">Live</button>
+              <button class="chip" type="button" data-filter="closed">Closed</button>
+            </div>
+          </aside>
+
+          <section class="content-panel">
+            <div class="section-heading">
+              <div>
+                <p class="eyebrow">Consumer section</p>
+                <h2>Live crop bidding</h2>
+              </div>
+            </div>
+            <div id="consumerProducts" class="product-grid"></div>
+          </section>
+        </div>
+      </section>
+
+      <div class="toast hidden" id="toast"></div>
+    </main>
+
+    <script src="/app.js" type="module"></script>
+  </body>
+</html>
